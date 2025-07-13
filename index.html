@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="myCSS/style.css" />
+    <script src="https://kit.fontawesome.com/32ecc1782a.js" crossorigin="anonymous"></script>
+    <title>News | Big News Daily</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Poppins:wght@300&display=swap');
+:root{
+    --primary-color: #EC4D37;
+    --secondary-color: #F99500;
+    --light-color: #f3f3f3;
+    --dark-color: #191919;
+    --navtext-color: #333;
+    --navbar-color: #fff;
+    --pd: 10px;
+    --max-width: 1100px;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.category{
+    --sports-color:#f99500;
+    --art-color: #a66bbe;
+    --tech-color: #009cff;
+}
+body{
+    font-family: 'Poppins';
+    line-height: 1.4;
+    background-color: var(--light-color);
+}
+#toggle{
+    font-family: 'Poppins';
+    line-height: 1.3;
+    text-decoration: none;
+    position: fixed;
+    right: 50px;
+    padding: 10px;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    border: 2px solid var(--dark-color);
+    border-radius: 6px;
+    cursor: pointer;
+}
+#toggle:hover{
+    background-color: var(--navtext-color);
+    color: var(--light-color);
+}
+a{
+    color: var(--navtext-color);
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+img{
+    width: 100%;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Poppins';
+    margin-bottom: 2rem;
+    line-height: 1.3;
+}
+.container{
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 0 2rem;
+    overflow: hidden;
+}
+#main-nav{
+    background-color: var(--navbar-color);
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+#main-nav .container{
+    display: grid;
+    grid-template-columns: 6fr 3fr 2fr;
+    padding: 1rem;
+    align-items: center;
+}
+#main-nav .logo{
+    width: 150px;
+}
+#main-nav ul{
+    justify-self: end;
+    display: flex;
+}
+#main-nav ul li a{
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 12px;
+    font-weight: 600;
+}
+#main-nav .container .current{
+    color: var(--primary-color);
+}
+#main-nav .container a:hover{
+    color: var(--primary-color);
+    transition: 1s; 
+}
+#main-nav .social i{
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+}
+#showcase{
+    color: var(--light-color);
+    background-color: var(--navtext-color);
+    padding: 2rem;
+    position: relative;
+}
+#showcase::before{
+    content: '';
+    background: url('/img/featured.jpeg')no-repeat center center/cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+}
+#showcase .showcase-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+#showcase .showcase-container .showcase-content{
+    z-index: 1;
+}
+.category{
+    display: inline-block;
+    color: #fff;
+    font-size: 0.55rem;
+    text-transform: uppercase;
+    padding: 0.4rem 0.6rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+.category-sports{
+    background-color: var(--sports-color);
+}
+.category-art{
+    background-color: var(--art-color);
+}
+.category-tech{
+    background-color: var(--tech-color);
+}
+.card img {
+    max-width: 100%;
+    height: 500px;
+    background-size: cover;
+    border-radius: 15px;
+}
+.btn{
+    display: inline-block;
+    border: none;
+    margin-top: 10px;
+    background-color: var(--dark-color);
+    color: #fff;
+    padding: 0.2rem 1rem;
+    border-radius: 8px;
+}
+.btn:hover{
+    color: var(--primary-color);
+}
+.btn-light{
+    background-color: var(--light-color);
+}
+.btn-primary{
+    background-color: var(--dark-color);
+}
+.btn-secondary{
+    background-color: var(--secondary-color);
+}
+.btn-block{
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+.card{
+    background-color: var(--light-color);
+    padding: 1rem;
+    border-radius: 10px 0 10px 0;
+    margin: 0.6rem;
+    box-shadow:3px 3px 8px 1px rgba(0, 0, 0, 0.4);
+}
+#home-articles .article-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+#home-articles .article-container > *:first-child{
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-gap: 1rem;
+    grid-column: 1 / span 2;
+}
+.bg-dark{
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+.bg-primary{
+    background-color: var(--primary-color);
+    color: #fff;
+}
+.bg-secondary{
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+.py-1{
+    padding: 1.5rem 0;
+}
+.py-2{padding: 2rem 0;}
+.py-3{padding: 3rem 0;}
+.py-4{padding: 4rem 0;}
+
+.bg-dark h1,
+.bg-dark h2,
+.bg-dark a,
+.bg-primary h1,
+.bg-primary h2,
+.bg-primary a,
+.bg-secondary h1,
+.bg-secondary h2,
+.bg-secondary a{
+    color: #fff;
+}
+
+footer{
+    width: 100%;
+    background-color: var(--navtext-color);
+}
+footer .footer-container{
+    justify-content: space-evenly;
+    align-items: center;
+    color: var(--light-color);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 3rem;
+    text-align: center;
+}
+footer .footer-container input{
+    width: 220px;
+    border-radius: 0;
+    height: 40px;
+}
+footer .footer-container .input-box{
+    padding-left: 10px;
+    margin-top: 15px;
+}
+footer .footer-container img{
+    margin-bottom: 30px;
+}
+footer .footer-container .list{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+footer .footer-container ul a{
+    color: var(--light-color);
+}
+footer .footer-container ul li{
+    margin-bottom: 20px;
+    color: var(--light-color);
+    padding-bottom: 10px;
+    border-bottom: dotted 2px rgb(122, 122, 122);
+}
+footer .copyright{
+    display: flex;
+    background-color: rgb(122, 122, 122);
+    width: 50%;
+    height: 70px;
+    font-size: 20px;
+    color: #f3f3f3;
+    margin-left: 25%;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+.dark-mode{
+    background-color: var(--navtext-color);
+    color: var(--navbar-color);
+    #toggle{
+        background-color: var(--dark-color);
+        color: var(--light-color);
+        border: 2px solid var(--light-color);
+    }
+    #main-nav{
+        background-color: var(--dark-color);
+        color: #fff;
+    }
+    #main-nav ul li a{
+        color: var(--navbar-color);
+    }
+    footer{
+        background-color: var(--dark-color);
+        color: var(--light-color);
+    }
+    #showcase{
+        color: var(--light-color);
+        background-color: var(--dark-color);
+    }
+    .btn{
+        background-color: var(--navtext-color);
+        color: var(--navbar-color);
+    }
+    article{
+        background-color: var(--dark-color);
+        color: var(--light-color);
+    }
+    article h3 a{
+        color: var(--light-color);
+    }
+}
+</style>
+<body>
+    <nav id="main-nav">
+        <div class="container">
+            <img src="img/logo.png" alt="NewsLogo" class="logo" />
+            <ul>
+                <li><a href="#" class="current">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Register</a></li>
+            </ul>
+            <button id="toggle" onclick="myFunction()">Dark/Light</button>
+        </div>
+    </nav>
+    <header id="showcase">
+        <div class="container">
+            <div class="showcase-container">
+                <div class="showcase-content">
+                    <div class="category category-sports">Sport</div>
+                    <h1>Sport News</h1>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati fugit optio recusandae at similique velit ipsa hic necessitatibus, voluptatem unde?</p>
+                    <a href="#" class="btn btn-primary">More</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="home-articles" class="py-2">
+        <div class="container">
+            <h2>Featured News</h2>
+                <article class="card">
+                    <img src="img/sport1.jpeg" alt="">
+                    <div>
+                        <div class="category category-sports">Sport News</div>
+                        <h3><a href="#">Lorem ipsum dolor sit amet.</a></h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, nesciunt mollitia rerum iusto fugit assumenda quasi culpa rem vero consequuntur.</p>
+                    </div>
+                </article>
+                <article class="card bg-dark">
+                    <div class="category category-art">Art News</div>
+                    <h3><a href="#">Lorem ipsum dolor sit amet consectetur.</a></h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto odit aliquam ratione non? Totam beatae odit, doloremque ipsam quisquam nisi.</p>
+                </article>
+                <article class="card">
+                    <img src="img/tech1.jpg" alt="">
+                    <div class="category category-tech">Technology News</div>
+                    <h3><a href="#">Lorem ipsum dolor sit amet.</a></h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus quidem assumenda ad voluptas esse ipsam iure veritatis dolores rem maiores.</p>
+                </article>
+                <article class="card">
+                    <div class="category category-tech">Culture News</div>
+                    <h3><a href="#">Lorem ipsum dolor sit amet.</a></h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, dolorem veniam quod illum enim corrupti modi vitae odio nisi excepturi.</p>
+                    <img src="img/1.jpeg" alt="">
+                </article>
+                <article class="card">
+                    <img src="img/tech2.jpg" alt="">
+                    <div class="category category-tech">Modern Technology</div>
+                    <h3><a href="#">Lorem ipsum dolor sit amet consectetur.</a></h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio aliquid iste minima corrupti cum debitis nesciunt deleniti autem illum, optio nobis architecto eaque consequuntur doloribus?</p>
+                </article>
+                <article class="card bg-primary">
+                    <div class="category category-art">Modern Culture</div>
+                    <h3><a href="#">Lorem ipsum dolor sit.</a></h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus asperiores debitis dolores quidem, optio voluptate rerum iure reiciendis?</p>
+                </article>
+            </div>
+        </div>
+    </section>
+    <footer id="main-footer" class="py-2">
+        <div class="container footer-container">
+            <div>
+                <img src="img/logo_light.png" alt="newslogo">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat, corporis!</p>
+            </div>
+            <div>
+                <h3>Enter your E-Mail</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum, tenetur porro?</p>
+                <form action="">
+                    <input class="input-box" type="email" placeholder="Fill in your E-Mail...">
+                    <input  type="submit" value="Send E-Mail" class="btn btn-primary">
+                </form>
+            </div>
+            <div>
+                <h3>More</h3>
+                <ul class="list">
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Contact us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Sign up</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, rem delectus.</p>
+                <input type="submit" value="Register" class="btn btn-secondary">
+            </div>
+        </div>
+        <div class="copyright">
+            <p>No template used &copy; 2025, Turmunkh Erdenebat 24229520</p>
+        </div>
+    </footer>
+    <script>
+        function myFunction() {
+            var element = document.body;
+            element.classList.toggle("dark-mode");
+        }
+    </script>
+</body>
+</html>
